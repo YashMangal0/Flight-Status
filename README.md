@@ -1,49 +1,79 @@
-##Flight Status Tracker
+Flight Status Tracker Application
+Overview
+The Flight Status Tracker is a web application that allows users to view and subscribe to updates on flight statuses. The application consists of a backend service that handles flight data and notifications and a frontend interface for users to interact with.
 
-Flight Status Tracker is a web application that provides real-time updates on flight statuses, including delays, cancellations, gate changes, and dynamic time updates for departure and arrival. The system also sends notifications about flight status changes using Firebase Cloud Messaging.
+Tech Stack
+Backend
+Flask: A lightweight WSGI web application framework used to create the backend API.
+MongoDB: A NoSQL database used to store flight data.
+Firebase: Used for sending push notifications to users.
+Frontend
+React: A JavaScript library for building user interfaces.
+Axios: A promise-based HTTP client used to make requests to the backend API.
+Additional Tools and Libraries
+Flask-CORS: A Flask extension for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible.
+Firebase Admin SDK: Used to send push notifications to users' devices.
+CSS: Used for styling the frontend application, including a combination of CSS Grid and additional styles for improved appearance.
 
-#Technologies Used
-Frontend: HTML, CSS, React.js
-Backend: Python, Flask
-Database: MongoDB
-Notifications: Firebase Cloud Messaging
 
-# Ensure you have the following installed:
-Node.js
-Python
-MongoDB
+Setup Instructions
+Backend
+Clone the repository:
 
-##Installation#
+bash
+Copy code
+git clone https://github.com/your-repo/flight-status-tracker.git
+cd flight-status-tracker/backend
+Install dependencies:
 
-#Clone the Repository
-git clone https://github.com/yourusername/flight-status-tracker.git
-cd flight-status-tracker
-Backend Setup
+bash
+Copy code
+pip install -r requirements.txt
+Configure MongoDB:
+Ensure you have a MongoDB cluster set up and update the connection string in your Flask application.
 
-#Create and activate a virtual environment:
-py -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+Configure Firebase:
 
-#Install the required packages:
-pip install Flask flask-cors pymongo
+Place your Firebase service account key JSON file in the backend directory.
+Update the path to your Firebase service account key in the Flask application.
 Run the backend server:
-py app.py
 
-#Frontend Setup
+bash
+Copy code
+flask run
+Frontend
 Navigate to the frontend directory:
-cd frontend
 
-#Install the required packages:
+bash
+Copy code
+cd flight-status-tracker/frontend
+Install dependencies:
+
+bash
+Copy code
 npm install
+Start the frontend server:
 
-#Start the frontend application:
+bash
+Copy code
 npm start
+Code Summary
+Backend (app.py)
+Endpoints:
 
-#Database Setup
-Insert Initial Flight Data
-Use the provided script or MongoDB client to insert sample flight data into the flights collection.
+GET /flights: Fetches all flight data.
+POST /update-flight-status: Updates the status of a flight and sends notifications to subscribed users.
+POST /subscribe: Allows a user to subscribe to flight status updates.
+Firebase Notification Function:
+
+send_fcm_notification(token, message_body): Sends a push notification using Firebase Cloud Messaging.
+Frontend (FlightStatus.js)
+Components:
+
+FlightStatus: Fetches flight data from the backend and displays it in a table. Allows users to subscribe to flight updates.
+Styles:
+
+A separate CSS file (FlightStatus.css) is used to style the table and buttons for a better user experience.
 Usage
-Once the backend server and frontend application are running, you can access the Flight Status Tracker in your browser. The application will display real-time flight statuses and send notifications for any changes.
-
-Contributing
-Feel free to fork the repository, make improvements, and submit pull requests. For any questions or suggestions, open an issue or contact the maintainer directly.
+Users can view the current status of flights on the frontend.
+Users can subscribe to specific flights to receive notifications when the flight status changes.
