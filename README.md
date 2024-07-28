@@ -1,3 +1,6 @@
+
+Here's a formatted version of your README for GitHub:
+
 Flight Status Tracker Application
 Overview
 The Flight Status Tracker is a web application that allows users to view and subscribe to updates on flight statuses. The application consists of a backend service that handles flight data and notifications and a frontend interface for users to interact with.
@@ -14,8 +17,6 @@ Additional Tools and Libraries
 Flask-CORS: A Flask extension for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible.
 Firebase Admin SDK: Used to send push notifications to users' devices.
 CSS: Used for styling the frontend application, including a combination of CSS Grid and additional styles for improved appearance.
-
-
 Setup Instructions
 Backend
 Clone the repository:
@@ -57,23 +58,3 @@ Start the frontend server:
 bash
 Copy code
 npm start
-Code Summary
-Backend (app.py)
-Endpoints:
-
-GET /flights: Fetches all flight data.
-POST /update-flight-status: Updates the status of a flight and sends notifications to subscribed users.
-POST /subscribe: Allows a user to subscribe to flight status updates.
-Firebase Notification Function:
-
-send_fcm_notification(token, message_body): Sends a push notification using Firebase Cloud Messaging.
-Frontend (FlightStatus.js)
-Components:
-
-FlightStatus: Fetches flight data from the backend and displays it in a table. Allows users to subscribe to flight updates.
-Styles:
-
-A separate CSS file (FlightStatus.css) is used to style the table and buttons for a better user experience.
-Usage
-Users can view the current status of flights on the frontend.
-Users can subscribe to specific flights to receive notifications when the flight status changes.
